@@ -9,6 +9,13 @@ npm install
 ```
 npm run serve
 ```
+### Saya memakai fake api, jalankan dahulu sblm ke web 
+```
+json-server --watch post.json --port 3004
+
+Dan udasahan memakai 2 terminal
+
+```
 
 ### Compiles and minifies for production
 ```
