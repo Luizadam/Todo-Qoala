@@ -1,13 +1,17 @@
 <template>
-  <div class="container-fluid  ">
-    <h2 class="mt-5">Welcome {{ Myname }}</h2>
-    <div class="row " id="batas1">
+  <div class="container-fluid">
+    <h2 class="mt-5">{{ this.ucapan }} {{ Myname }}</h2>
+    <div class="row" id="batas1">
       <div class="col-md-12">
         <AddTodo />
       </div>
     </div>
     <div class="row mt-5">
-      <div class="col-md-4" v-for="data in DataTodo.slice().reverse()" :key="data.id">
+      <div
+        class="col-md-4"
+        v-for="data in DataTodo.slice().reverse()"
+        :key="data.id"
+      >
         <div class="card mt-3">
           <div class="card-header">
             <p>{{ data.title }}</p>
@@ -57,10 +61,10 @@
                     placeholder="Title "
                     v-model="titleEdit"
                   />
-                  <label for="name " class="mt-3">Body</label>
+                  <label for="name" class="mt-3">Body</label>
                   <input
                     type="text"
-                    class="form-control "
+                    class="form-control"
                     id="bodyTodo"
                     placeholder="Desc "
                     v-model="bodyEdit"
@@ -116,7 +120,9 @@ export default {
       bodyEdit: "",
       max: 300,
       isLoading: false,
-      min: 3
+      min: 3,
+
+      ucapan:""
     };
   },
   components: {
@@ -193,6 +199,19 @@ export default {
       $("#Modaledit").modal("show");
       this.selectData = data;
     }
+  },
+  mounted(){
+
+let myDate = new Date()
+let jam = myDate.getHours()
+
+
+if (jam < 12)
+  this.ucapan = 'Good Morning';
+else if (jam >= 12 && jam <= 17)
+  this.ucapan = 'Good Afternoon';
+else if (jam >= 17 && jam <= 24)
+  this.ucapan = 'Good Evening';
   }
 };
 </script>
