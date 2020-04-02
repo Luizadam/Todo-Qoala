@@ -77,7 +77,7 @@ background: linear-gradient(270deg, rgba(241,249,249,1) 0%, rgba(255,234,234,0.9
     display: block;
     height: 100%;
     border-radius: 15px;
-    background-color: #a5df41;
+    background-color: hsl(199, 81%, 39%);
     background-size: 30px 30px;
     background-image: linear-gradient(135deg, rgba($color: #fff, $alpha: .15) 25%, transparent 25%,
       transparent 50%, rgba($color: #fff, $alpha: .15) 50%,
