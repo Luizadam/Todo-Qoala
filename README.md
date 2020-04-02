@@ -13,7 +13,7 @@ npm run serve
 ```
 json-server --watch post.json --port 3004
 
-Dan udasahan memakai 2 terminal
+Dan usahakan memakai 2 terminal
 
 ```
 
