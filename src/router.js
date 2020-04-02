@@ -6,9 +6,15 @@ const router = new Router({
     linkExactActiveClass: "active",
     mode: "history",
     routes: [
-    
+      {
+        path: "/",
+        name: "progressBar",
+        
+        component: () =>
+          import(/* webpackChunkName: "demo" */ "./components/Progress.vue")
+      },
         {
-            path: "/",
+            path: "/landing",
             name: "landing",
             
             component: () =>

@@ -72,7 +72,8 @@ background: linear-gradient(270deg, rgba(241,249,249,1) 0%, rgba(255,234,234,0.9
 }
 @media only screen and (max-width: 600px) {
   #batas {
-    margin:8%
+    margin:8%;
+    
   }
 }
 .animasi {

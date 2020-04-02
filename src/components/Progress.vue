@@ -3,49 +3,44 @@
   <div class="container">
       <div class="row " id="loading">
       <div class="col-md-12 mt-5">
-    <div>{{ percent }}%</div>
+    <div>{{ this.percentage  }}%</div>
     <div class="loading-bar" >
       <div class="percentage text-center"  :style="{'width' : percentage + '%'} " keyon="router"></div>
     </div>
       </div>
       </div>
   </div>
-  
-  <!-- Youtube Link -->
 
 </template>
 <script>
 export default {
-//   name:'#app',
   data: () => {
     return {
       percentage: 0
     }
   },
-  
-  computed: {
-    percent() {
-        if(this.percentage == 100){
-            this.$router.push('/landing')
-        } 
-      return this.percentage.toFixed();
-      
-    }
-  },
   created() {
     var intval = setInterval(() => {
-      if(this.percentage < 100)
-        this.percentage += .1;
-      else
-        clearInterval(intval);
-    }, 10);
-    if(this.percentage == 100){
-            this.$router.push('/landing')
-        } 
-  }
+      if(this.percentage < 100){
+        this.percentage += 1;
+    if(this.percentage == 100)
+{
+    this.$router.push('/landing')
+}    }
+      else 
+        clearInterval(intval);      
+    }, 70,);
+    console.log(setInterval)
+    
+  },
+  
+  
 }
 </script>
 <style lang="scss" scoped>
+body{
+    
+}
 
 #loading{
   left: 0;
@@ -55,10 +50,16 @@ export default {
   margin: 25px;
 }
 
+body{
+background: rgb(241,249,249);
+background: linear-gradient(270deg, rgba(241,249,249,1) 0%, rgba(255,234,234,0.9671218829328606) 100%);
+}
+
 .container {
   text-align: right;
   font-size: 8rem;
   color: #555;
+  
 }
 
 .loading-bar {
