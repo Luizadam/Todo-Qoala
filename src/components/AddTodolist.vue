@@ -12,32 +12,17 @@
             placeholder="Title "
             v-model="title"
           />
-          <small :class="{ 'text-danger': title.length > max }"
-            >{{ title.length }}/{{ max }} karakter</small
-          >
+          <small
+            :class="{ 'text-danger': title.length > max }"
+          >{{ title.length }}/{{ max }} karakter</small>
         </div>
         <label for="name" class="mt-3">Body</label>
-        <input
-          type="text"
-          class="form-control"
-          id="bodyTodo"
-          placeholder="Desc "
-          v-model="body"
-        />
-        <small :class="{ 'text-danger': body.length > max }"
-          >{{ body.length }}/{{ max }} karakter</small
-        >
-        <button class="btn btn-dark mt-3" type="submit" style="float:right">
-          Save
-        </button>
+        <input type="text" class="form-control" id="bodyTodo" placeholder="Desc " v-model="body" />
+        <small :class="{ 'text-danger': body.length > max }">{{ body.length }}/{{ max }} karakter</small>
+        <button class="btn btn-dark mt-3" type="submit" style="float:right">Save</button>
       </form>
     </div>
-    <loading
-      :active.sync="isLoading"
-      :can-cancel="false"
-      :is-full-page="true"
-      :color="'#F98100'"
-    ></loading>
+    <loading :active.sync="isLoading" :can-cancel="false" :is-full-page="true" :color="'#F98100'"></loading>
   </div>
 </template>
 <script>

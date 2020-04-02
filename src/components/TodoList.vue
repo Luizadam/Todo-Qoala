@@ -7,11 +7,7 @@
       </div>
     </div>
     <div class="row mt-5">
-      <div
-        class="col-md-4"
-        v-for="data in DataTodo.slice().reverse()"
-        :key="data.id"
-      >
+      <div class="col-md-4" v-for="data in DataTodo.slice().reverse()" :key="data.id">
         <div class="card mt-3">
           <div class="card-header">
             <p>{{ data.title }}</p>
@@ -20,12 +16,8 @@
             <p>{{ data.body }}</p>
           </div>
           <div class="card-footer">
-            <button class="btn btn-danger" @click="DeleteData(data.id)">
-              Delete
-            </button>
-            <button class="btn btn-primary ml-3" @click="showEditModal(data)">
-              Edit
-            </button>
+            <button class="btn btn-danger" @click="DeleteData(data.id)">Delete</button>
+            <button class="btn btn-primary ml-3" @click="showEditModal(data)">Edit</button>
           </div>
         </div>
         <div
@@ -39,15 +31,8 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">
-                  Modal title
-                </h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -69,20 +54,12 @@
                     placeholder="Desc "
                     v-model="bodyEdit"
                   />
-                  <small :class="{ 'text-danger': bodyEdit.length > max }"
-                    >{{ bodyEdit.length }}/{{ max }} karakter</small
-                  >
+                  <small
+                    :class="{ 'text-danger': bodyEdit.length > max }"
+                  >{{ bodyEdit.length }}/{{ max }} karakter</small>
                   <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button type="submit" class="btn btn-primary">
-                      Save changes
-                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                   </div>
                 </form>
               </div>
@@ -91,12 +68,7 @@
         </div>
       </div>
     </div>
-    <loading
-      :active.sync="isLoading"
-      :can-cancel="false"
-      :is-full-page="true"
-      :color="'#F98100'"
-    ></loading>
+    <loading :active.sync="isLoading" :can-cancel="false" :is-full-page="true" :color="'#F98100'"></loading>
   </div>
 </template>
 <script>
@@ -122,7 +94,7 @@ export default {
       isLoading: false,
       min: 3,
 
-      ucapan:""
+      ucapan: ""
     };
   },
   components: {
@@ -200,18 +172,13 @@ export default {
       this.selectData = data;
     }
   },
-  mounted(){
+  mounted() {
+    let myDate = new Date();
+    let jam = myDate.getHours();
 
-let myDate = new Date()
-let jam = myDate.getHours()
-
-
-if (jam < 12)
-  this.ucapan = 'Good Morning';
-else if (jam >= 12 && jam <= 17)
-  this.ucapan = 'Good Afternoon';
-else if (jam >= 17 && jam <= 24)
-  this.ucapan = 'Good Evening';
+    if (jam < 12) this.ucapan = "Good Morning";
+    else if (jam >= 12 && jam <= 17) this.ucapan = "Good Afternoon";
+    else if (jam >= 17 && jam <= 24) this.ucapan = "Good Evening";
   }
 };
 </script>
